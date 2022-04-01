@@ -1,17 +1,14 @@
+import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import type { NextPage } from 'next';
-
-import Container from '../components/Container';
-import Gallery from '../components/Gallery';
+import Container from '../../components/Container';
 
 const Home: NextPage = () => {
   return (
     <Container>
       <Head>
-        <title>Vault</title>
+        <title>Vavlt</title>
       </Head>
-      <Gallery />
     </Container>
   );
 };
