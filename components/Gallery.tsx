@@ -13,6 +13,24 @@ export default function Gallery() {
       name: 'April 3, 2022',
       brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
     },
+    {
+      id: 2,
+      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
+      name: 'April 3, 2022',
+      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
+    },
+    {
+      id: 3,
+      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
+      name: 'April 3, 2022',
+      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
+    },
+    {
+      id: 4,
+      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
+      name: 'April 3, 2022',
+      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
+    },
   ];
   return (
     <div className="px-6 py-8 mx-auto">
@@ -41,7 +59,7 @@ function BlurImage({ image }: { image: ImageProps }) {
   return (
     <>
       <div className="group">
-        <div className="duration-200 ease-in-out rounded-lg cursor-pointer bg-neutral-200 hover:bg-neutral-300/80 dark:bg-neutral-800 dark:hover:bg-neutral-800/60">
+        <div className="duration-200 ease-in-out rounded-lg cursor-pointer bg-neutral-200 hover:bg-neutral-300/80 dark:bg-neutral-200/80 dark:hover:bg-neutral-100/90">
           <Image
             alt=""
             src="/image1.png"
@@ -68,7 +86,7 @@ function BlurImage({ image }: { image: ImageProps }) {
               <a
                 key={index}
                 href={`/brands/${brand}`}
-                className="text-neutral-600/80 hover:underline"
+                className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
               >
                 {brand}
               </a>
@@ -139,7 +157,7 @@ function BlurImage({ image }: { image: ImageProps }) {
                     {'April 1, 2022'}
                   </p>
                 </Dialog.Title>
-                <div className="rounded-lg bg-neutral-200 dark:bg-neutral-800">
+                <div className="rounded-lg bg-neutral-200 dark:bg-neutral-200/80">
                   <Image
                     alt=""
                     src="/image1.png"
