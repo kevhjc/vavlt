@@ -80,7 +80,7 @@ function BlurImage({ image }: { image: ImageProps }) {
             {image.name}
           </span>
         </a>
-        <div className="mt-1 text-sm font-medium">
+        <div className="flex flex-wrap mt-1 text-sm font-medium">
           {image.brands.map((brand, index) => (
             <>
               <a
@@ -152,11 +152,6 @@ function BlurImage({ image }: { image: ImageProps }) {
                     ></path>
                   </svg>
                 </button>
-                <Dialog.Title>
-                  <p className="mb-4 font-bold text-md text-neutral-700 dark:text-neutral-100">
-                    {'April 1, 2022'}
-                  </p>
-                </Dialog.Title>
                 <div className="rounded-lg bg-neutral-200 dark:bg-neutral-200/80">
                   <Image
                     alt=""
@@ -168,8 +163,13 @@ function BlurImage({ image }: { image: ImageProps }) {
                     className="scale-100 blur-0"
                   />
                 </div>
-                <div className="flex justify-end mt-4 space-x-2 text-sm font-medium md:text-md text-neutral-600 dark:text-neutral-100">
-                  {image.brands.map((brand, index) => (
+                <Dialog.Title>
+                  <p className="mt-4 font-bold text-md text-neutral-700 dark:text-neutral-100">
+                    {'April 1, 2022'}
+                  </p>
+                </Dialog.Title>
+                <div className="flex flex-wrap gap-2 mt-4 text-xs font-medium md:text-md text-neutral-600 dark:text-neutral-100">
+                  {image.brands.map((brand) => (
                     <a
                       href={`/categories/${brand}`}
                       className="p-2 rounded bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600"
