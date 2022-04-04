@@ -2,9 +2,9 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 
-import { INavProps } from '../lib/interfaces';
+import { NavProps } from '../lib/interfaces';
 
-export default function NavItem({ href, text }: INavProps) {
+export default function NavItem({ href, text }: NavProps) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
