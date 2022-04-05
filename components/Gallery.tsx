@@ -34,7 +34,7 @@ function BlurImage({ image }: { image: ImageProps }) {
   return (
     <>
       <div className="group">
-        <div className="duration-200 ease-in-out rounded-lg cursor-pointer bg-neutral-200 hover:bg-neutral-300/80 dark:bg-neutral-200/80 dark:hover:bg-neutral-100/90">
+        <div className="duration-200 ease-in-out rounded-lg cursor-pointer bg-neutral-200 hover:bg-neutral-300/80">
           <Image
             alt=""
             src={image.href}
