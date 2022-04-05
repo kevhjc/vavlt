@@ -50,19 +50,19 @@ function BlurImage({ image }: { image: ImageProps }) {
             onClick={openModal}
           />
         </div>
-        <a href={image.href}>
-          <span className="inline-block mt-2 text-md text-neutral-700 hover:underline dark:text-neutral-100">
-            {format(new Date(image.created_at), 'MMMM d, yyyy')}
-          </span>
-        </a>
+        <span className="inline-block mt-2 text-md text-neutral-700 dark:text-neutral-100">
+          {format(new Date(image.created_at), 'MMMM d, yyyy')}
+        </span>
         <div className="flex flex-wrap mt-1 text-sm font-medium">
           {image.brands.map((brand, index) => (
-            <div
-              key={brand}
-              className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
-            >
-              {brand}
-              <span className="mr-1 text-neutral-400">
+            <div key={brand}>
+              <a
+                href={`/brands/${brand}`}
+                className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
+              >
+                {brand}
+              </a>
+              <span className="mr-1 text-neutral-300 dark:text-neutral-400">
                 {index < image.brands.length - 1 ? ',' : ''}
               </span>
             </div>
@@ -144,7 +144,7 @@ function BlurImage({ image }: { image: ImageProps }) {
                   {image.brands.map((brand) => (
                     <a
                       key={brand}
-                      href={`/categories/${brand}`}
+                      href={`/brands/${brand}`}
                       className="p-2 rounded bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600"
                     >
                       {brand}
