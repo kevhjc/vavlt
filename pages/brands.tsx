@@ -1,19 +1,33 @@
 import Head from 'next/head';
+import { createClient } from '@supabase/supabase-js';
 
-import type { NextPage } from 'next';
+import { ImageProps } from '../lib/interfaces';
 
 import Container from '../components/Container';
 import BrandsList from '../components/BrandsList';
 
-const Brands: NextPage = () => {
+export default function Brands({ images }: { images: ImageProps[] }) {
   return (
     <Container>
       <Head>
         <title>Vault — Brands</title>
       </Head>
-      <BrandsList />
+      <BrandsList images={images} />
     </Container>
   );
-};
+}
 
-export default Brands;
+export async function getStaticProps() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  );
+
+  const { data } = await supabase.from('images').select('*').order('id');
+
+  return {
+    props: {
+      images: data,
+    },
+  };
+}

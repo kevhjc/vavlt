@@ -2,23 +2,22 @@ import Image from 'next/image';
 import { Fragment, useState, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import format from 'date-fns/format';
-import cn from 'classnames';
 
 import { ImageProps } from '../lib/interfaces';
 
-export default function Gallery({ images }: { images: ImageProps[] }) {
+export default function PostGrid({ images }: { images: ImageProps[] }) {
   return (
     <div className="px-6 py-8 mx-auto">
       <div className="grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {images.map((image: ImageProps) => (
-          <BlurImage key={image.id} image={image} />
+          <Post key={image.id} image={image} />
         ))}
       </div>
     </div>
   );
 }
 
-function BlurImage({ image }: { image: ImageProps }) {
+function Post({ image }: { image: ImageProps }) {
   const [isLoading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const closeButtonRef = useRef(null);
@@ -34,7 +33,7 @@ function BlurImage({ image }: { image: ImageProps }) {
   return (
     <>
       <div className="group">
-        <div className="duration-200 ease-in-out rounded-lg cursor-pointer bg-neutral-200 hover:bg-neutral-300/80">
+        <div className="overflow-hidden rounded-lg">
           <Image
             alt=""
             src={image.href}
@@ -42,10 +41,11 @@ function BlurImage({ image }: { image: ImageProps }) {
             width={500}
             height={500}
             objectFit="cover"
-            className={cn(
-              'duration-200 ease-in-out hover:-translate-y-1',
-              isLoading ? 'scale-110 blur-2xl' : 'scale-100 blur-0'
-            )}
+            className={
+              isLoading
+                ? 'scale-110 blur-2xl'
+                : 'scale-100 cursor-pointer rounded-lg blur-0 duration-200 ease-in-out hover:scale-[1.02]'
+            }
             onLoadingComplete={() => setLoading(false)}
             onClick={openModal}
           />
@@ -79,10 +79,10 @@ function BlurImage({ image }: { image: ImageProps }) {
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
+              enter="ease-out duration-100"
               enterFrom="opacity-0"
               enterTo="opacity-100"
-              leave="ease-in duration-200"
+              leave="ease-in duration-100"
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
@@ -104,7 +104,7 @@ function BlurImage({ image }: { image: ImageProps }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-xl dark:bg-neutral-900 md:max-w-2xl">
+              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-xl md:max-w-2xl dark:bg-neutral-800">
                 <button
                   className="absolute top-0 right-0 bottom-auto left-auto p-3 translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full shadow-md stroke-2 stroke-white hover:bg-red-700"
                   onClick={closeModal}
@@ -124,17 +124,15 @@ function BlurImage({ image }: { image: ImageProps }) {
                     ></path>
                   </svg>
                 </button>
-                <div className="rounded-lg bg-neutral-200 dark:bg-neutral-200/80">
-                  <Image
-                    alt=""
-                    src={image.href}
-                    layout="responsive"
-                    width={500}
-                    height={500}
-                    objectFit="cover"
-                    className="scale-100 blur-0"
-                  />
-                </div>
+                <Image
+                  alt=""
+                  src={image.href}
+                  layout="responsive"
+                  width={500}
+                  height={500}
+                  objectFit="cover"
+                  className="scale-100 rounded-lg blur-0"
+                />
                 <Dialog.Title>
                   <p className="mt-4 text-md text-neutral-700 dark:text-neutral-100">
                     {'April 1, 2022'}

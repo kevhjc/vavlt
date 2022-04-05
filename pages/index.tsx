@@ -4,18 +4,18 @@ import { createClient } from '@supabase/supabase-js';
 import { ImageProps } from '../lib/interfaces';
 
 import Container from '../components/Container';
-import Gallery from '../components/Gallery';
+import PostGrid from '../components/PostGrid';
 
-const Home = ({ images }: { images: ImageProps[] }) => {
+export default function Home({ images }: { images: ImageProps[] }) {
   return (
     <Container>
       <Head>
         <title>Vault</title>
       </Head>
-      <Gallery images={images} />
+      <PostGrid images={images} />
     </Container>
   );
-};
+}
 
 export async function getStaticProps() {
   const supabase = createClient(
@@ -31,5 +31,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default Home;
