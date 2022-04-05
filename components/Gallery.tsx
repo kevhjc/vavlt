@@ -1,41 +1,16 @@
 import Image from 'next/image';
 import { Fragment, useState, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import format from 'date-fns/format';
 import cn from 'classnames';
 
 import { ImageProps } from '../lib/interfaces';
 
-export default function Gallery() {
-  const images = [
-    {
-      id: 1,
-      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
-      name: 'April 3, 2022',
-      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
-    },
-    {
-      id: 2,
-      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
-      name: 'April 3, 2022',
-      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
-    },
-    {
-      id: 3,
-      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
-      name: 'April 3, 2022',
-      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
-    },
-    {
-      id: 4,
-      href: 'https://goods.ams3.digitaloceanspaces.com/store/ac8cf531b4ae816c3ea44e75cc7ece18.png',
-      name: 'April 3, 2022',
-      brands: ['Unrecorded', 'Deus Ex Machina', 'Omega', 'Hardgraft'],
-    },
-  ];
+export default function Gallery({ images }: { images: ImageProps[] }) {
   return (
     <div className="px-6 py-8 mx-auto">
       <div className="grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {images.map((image) => (
+        {images.map((image: ImageProps) => (
           <BlurImage key={image.id} image={image} />
         ))}
       </div>
@@ -62,7 +37,7 @@ function BlurImage({ image }: { image: ImageProps }) {
         <div className="duration-200 ease-in-out rounded-lg cursor-pointer bg-neutral-200 hover:bg-neutral-300/80 dark:bg-neutral-200/80 dark:hover:bg-neutral-100/90">
           <Image
             alt=""
-            src="/image1.png"
+            src={image.href}
             layout="responsive"
             width={500}
             height={500}
@@ -77,23 +52,20 @@ function BlurImage({ image }: { image: ImageProps }) {
         </div>
         <a href={image.href}>
           <span className="inline-block mt-2 text-md text-neutral-700 hover:underline dark:text-neutral-100">
-            {image.name}
+            {format(new Date(image.created_at), 'MMMM d, yyyy')}
           </span>
         </a>
         <div className="flex flex-wrap mt-1 text-sm font-medium">
           {image.brands.map((brand, index) => (
-            <>
-              <a
-                key={index}
-                href={`/brands/${brand}`}
-                className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
-              >
-                {brand}
-              </a>
+            <div
+              key={brand}
+              className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
+            >
+              {brand}
               <span className="mr-1 text-neutral-400">
                 {index < image.brands.length - 1 ? ',' : ''}
               </span>
-            </>
+            </div>
           ))}
         </div>
       </div>
@@ -155,7 +127,7 @@ function BlurImage({ image }: { image: ImageProps }) {
                 <div className="rounded-lg bg-neutral-200 dark:bg-neutral-200/80">
                   <Image
                     alt=""
-                    src="/image1.png"
+                    src={image.href}
                     layout="responsive"
                     width={500}
                     height={500}
@@ -164,13 +136,14 @@ function BlurImage({ image }: { image: ImageProps }) {
                   />
                 </div>
                 <Dialog.Title>
-                  <p className="mt-4 font-bold text-md text-neutral-700 dark:text-neutral-100">
+                  <p className="mt-4 text-md text-neutral-700 dark:text-neutral-100">
                     {'April 1, 2022'}
                   </p>
                 </Dialog.Title>
                 <div className="flex flex-wrap gap-2 mt-4 text-xs font-medium md:text-md text-neutral-600 dark:text-neutral-100">
                   {image.brands.map((brand) => (
                     <a
+                      key={brand}
                       href={`/categories/${brand}`}
                       className="p-2 rounded bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600"
                     >

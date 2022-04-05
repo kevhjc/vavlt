@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 import Navbar from '../components/Navbar';
 
@@ -10,7 +9,6 @@ interface IContainerProps {
 
 export default function Container(props: IContainerProps) {
   const { children } = props;
-  const router = useRouter();
 
   const meta = {
     title: 'Vavlt',

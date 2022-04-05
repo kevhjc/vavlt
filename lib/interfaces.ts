@@ -5,7 +5,7 @@ export interface NavProps {
 
 export interface ImageProps {
   id: number;
-  href: string;
-  name: string;
+  created_at: string;
   brands: string[];
+  href: string;
 }
