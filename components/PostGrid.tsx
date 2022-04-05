@@ -8,7 +8,7 @@ import { ImageProps } from '../lib/interfaces';
 export default function PostGrid({ images }: { images: ImageProps[] }) {
   return (
     <div className="px-6 py-8 mx-auto">
-      <div className="grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      <div className="grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 2xl:grid-cols-5">
         {images.map((image: ImageProps) => (
           <Post key={image.id} image={image} />
         ))}
@@ -50,7 +50,7 @@ function Post({ image }: { image: ImageProps }) {
             onClick={openModal}
           />
         </div>
-        <span className="inline-block mt-2 text-md text-neutral-700 dark:text-neutral-100">
+        <span className="inline-block mt-2 text-md text-neutral-800 dark:text-neutral-100">
           {format(new Date(image.created_at), 'MMMM d, yyyy')}
         </span>
         <div className="flex flex-wrap mt-1 text-sm font-medium">
@@ -62,7 +62,7 @@ function Post({ image }: { image: ImageProps }) {
               >
                 {brand}
               </a>
-              <span className="mr-1 text-neutral-300 dark:text-neutral-400">
+              <span className="mr-1 text-neutral-500 dark:text-neutral-400">
                 {index < image.brands.length - 1 ? ',' : ''}
               </span>
             </div>
@@ -104,7 +104,7 @@ function Post({ image }: { image: ImageProps }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-xl md:max-w-2xl dark:bg-neutral-800">
+              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle transition-all transform shadow-xl rounded-xl bg-neutral-100 md:max-w-2xl dark:bg-neutral-800">
                 <button
                   className="absolute top-0 right-0 bottom-auto left-auto p-3 translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full shadow-md stroke-2 stroke-white hover:bg-red-700"
                   onClick={closeModal}
