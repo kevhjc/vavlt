@@ -135,7 +135,7 @@ function Post({ image }: { image: ImageProps }) {
                 />
                 <Dialog.Title>
                   <p className="mt-4 text-md text-neutral-700 dark:text-neutral-100">
-                    {'April 1, 2022'}
+                    {format(new Date(image.created_at), 'MMMM d, yyyy')}
                   </p>
                 </Dialog.Title>
                 <div className="flex flex-wrap gap-2 mt-4 text-xs font-medium md:text-md text-neutral-600 dark:text-neutral-100">

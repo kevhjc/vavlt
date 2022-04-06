@@ -10,7 +10,7 @@ export default function Brands({ images }: { images: ImageProps[] }) {
   return (
     <Container>
       <Head>
-        <title>Vault — Brands</title>
+        <title>Brands — Vault</title>
       </Head>
       <BrandsList images={images} />
     </Container>

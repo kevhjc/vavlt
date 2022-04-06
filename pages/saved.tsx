@@ -8,7 +8,7 @@ const Saved: NextPage = () => {
   return (
     <Container>
       <Head>
-        <title>Vault — Saved</title>
+        <title>Saved — Vault</title>
       </Head>
     </Container>
   );
