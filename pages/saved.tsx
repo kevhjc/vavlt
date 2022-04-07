@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import type { NextPage } from 'next';
 
-import Container from '../components/Container';
+import Container from 'components/Container';
 
 const Saved: NextPage = () => {
   return (

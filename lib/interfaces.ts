@@ -1,3 +1,8 @@
+export interface ContainerProps {
+  title?: string;
+  children: JSX.Element[] | JSX.Element;
+}
+
 export interface NavProps {
   href: string;
   text: string;

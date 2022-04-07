@@ -1,13 +1,10 @@
 import Head from 'next/head';
 
+import { ContainerProps } from '../lib/interfaces';
+
 import Navbar from '../components/Navbar';
 
-interface IContainerProps {
-  title?: string;
-  children: JSX.Element[] | JSX.Element;
-}
-
-export default function Container(props: IContainerProps) {
+export default function Container(props: ContainerProps) {
   const { children } = props;
 
   const meta = {

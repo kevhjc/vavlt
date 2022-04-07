@@ -4,6 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import format from 'date-fns/format';
 
 import { ImageProps } from '../lib/interfaces';
+import { slugify } from '../lib/utils';
 
 export default function PostGrid({ images }: { images: ImageProps[] }) {
   return (
@@ -57,7 +58,7 @@ function Post({ image }: { image: ImageProps }) {
           {image.brands.map((brand, index) => (
             <div key={brand}>
               <a
-                href={`/brands/${brand}`}
+                href={`/brands/${slugify(brand)}`}
                 className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
               >
                 {brand}
@@ -142,7 +143,7 @@ function Post({ image }: { image: ImageProps }) {
                   {image.brands.map((brand) => (
                     <a
                       key={brand}
-                      href={`/brands/${brand}`}
+                      href={`/brands/${slugify(brand)}`}
                       className="p-2 rounded bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600"
                     >
                       {brand}

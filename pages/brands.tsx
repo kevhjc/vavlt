@@ -1,21 +1,10 @@
 import Head from 'next/head';
 import { createClient } from '@supabase/supabase-js';
 
-import { ImageProps } from '../lib/interfaces';
+import { ImageProps } from 'lib/interfaces';
 
-import Container from '../components/Container';
-import BrandsList from '../components/BrandsList';
-
-export default function Brands({ images }: { images: ImageProps[] }) {
-  return (
-    <Container>
-      <Head>
-        <title>Brands — Vault</title>
-      </Head>
-      <BrandsList images={images} />
-    </Container>
-  );
-}
+import Container from 'components/Container';
+import BrandsList from 'components/BrandsList';
 
 export async function getStaticProps() {
   const supabase = createClient(
@@ -30,4 +19,15 @@ export async function getStaticProps() {
       images: data,
     },
   };
+}
+
+export default function Brands({ images }: { images: ImageProps[] }) {
+  return (
+    <Container>
+      <Head>
+        <title>Brands — Vault</title>
+      </Head>
+      <BrandsList images={images} />
+    </Container>
+  );
 }

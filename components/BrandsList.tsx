@@ -1,6 +1,7 @@
-import { ImageProps } from '../lib/interfaces';
+import Link from 'next/link';
 
-import { getUniqueBrands, getSections } from '../utils/getBrands';
+import { ImageProps } from 'lib/interfaces';
+import { getUniqueBrands, getSections, slugify } from 'lib/utils';
 
 export default function BrandsList({ images }: { images: ImageProps[] }) {
   const brands = getUniqueBrands(images);
@@ -16,10 +17,15 @@ export default function BrandsList({ images }: { images: ImageProps[] }) {
                 {section.char}
               </h2>
               {section.brands.map((brand, index) => (
-                <ul key={index}>
-                  <a href={`/brands/${brand}`} className="hover:underline">
+                <ul key={index} className="w-fit hover:underline">
+                  <Link
+                    href={{
+                      pathname: '/brands/[slug]',
+                      query: { slug: slugify(brand) },
+                    }}
+                  >
                     {brand}
-                  </a>
+                  </Link>
                 </ul>
               ))}
             </div>
