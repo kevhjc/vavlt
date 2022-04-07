@@ -35,7 +35,7 @@ function Post({ image }: { image: ImageProps }) {
   return (
     <>
       <div className="group">
-        <div className="relative overflow-hidden rounded-lg">
+        <div className="relative m-2 overflow-hidden scale-105 bg-white rounded-lg">
           <Image
             alt=""
             src={image.href}
@@ -44,8 +44,8 @@ function Post({ image }: { image: ImageProps }) {
             height={500}
             objectFit="cover"
             className={cn(
-              'static cursor-pointer rounded-lg duration-200 ease-in-out group-hover:scale-[1.02]',
-              isLoading ? 'scale-110 blur-2xl' : 'scale-100 blur-0'
+              'cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:scale-100',
+              isLoading ? 'scale-110 blur-2xl' : 'scale-95 blur-0'
             )}
             onLoadingComplete={() => setLoading(false)}
             onClick={openModal}
