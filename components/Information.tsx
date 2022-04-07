@@ -6,8 +6,16 @@ export default function Information() {
           <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
             What's Vavlt?
           </h2>
-          Vavlt is a revival of a project that was abandoned in the early days
-          of the internet.
+          Vavlt is a revival of an{' '}
+          <a
+            href="http://web.archive.org/web/2020*/vavlt.tumblr.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-1 hover:no-underline"
+          >
+            {`old Tumblr site`}
+          </a>
+          .
         </div>
         <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
           Who made it?

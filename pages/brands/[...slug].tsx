@@ -68,7 +68,7 @@ export default function Brand({ images }: { images: ImageProps[] }) {
           <div className="px-6 -mb-6">
             <div className="py-8 mx-auto gap-y-8">
               <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
-                All posts including{' '}
+                Posts featuring{' '}
                 <span className="text-neutral-800 dark:text-neutral-100">
                   {brand}
                 </span>

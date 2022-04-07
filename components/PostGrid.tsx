@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Fragment, useState, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import format from 'date-fns/format';
+import cn from 'classnames';
 
 import { ImageProps } from '../lib/interfaces';
 import { slugify } from '../lib/utils';
@@ -34,7 +35,7 @@ function Post({ image }: { image: ImageProps }) {
   return (
     <>
       <div className="group">
-        <div className="overflow-hidden rounded-lg">
+        <div className="relative overflow-hidden rounded-lg">
           <Image
             alt=""
             src={image.href}
@@ -42,11 +43,10 @@ function Post({ image }: { image: ImageProps }) {
             width={500}
             height={500}
             objectFit="cover"
-            className={
-              isLoading
-                ? 'scale-110 blur-2xl'
-                : 'scale-100 cursor-pointer rounded-lg blur-0 duration-200 ease-in-out hover:scale-[1.02]'
-            }
+            className={cn(
+              'static cursor-pointer rounded-lg duration-200 ease-in-out group-hover:scale-[1.02]',
+              isLoading ? 'scale-110 blur-2xl' : 'scale-100 blur-0'
+            )}
             onLoadingComplete={() => setLoading(false)}
             onClick={openModal}
           />
