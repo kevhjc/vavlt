@@ -64,21 +64,19 @@ export default function Brand({ images }: { images: ImageProps[] }) {
         <title>{brand} — Vault</title>
       </Head>
       {images ? (
-        <div className="max-w-7xl">
-          <div className="px-6 -mb-6">
-            <div className="py-8 mx-auto gap-y-8">
-              <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
-                Posts featuring{' '}
-                <span className="text-neutral-800 dark:text-neutral-100">
-                  {brand}
-                </span>
-              </h2>
-            </div>
+        <>
+          <div className="px-6 pt-8 mx-auto">
+            <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
+              Posts featuring{' '}
+              <span className="text-neutral-800 dark:text-neutral-100">
+                {brand}
+              </span>
+            </h2>
           </div>
           <PostGrid images={images} />
-        </div>
+        </>
       ) : (
-        <div className="px-6 max-w-7xl">
+        <div className="px-6">
           <div className="py-8 mx-auto gap-y-8">
             <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
               Loading...
