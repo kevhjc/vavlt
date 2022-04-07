@@ -21,6 +21,7 @@ export async function getStaticProps() {
     props: {
       images: data,
     },
+    revalidate: 60,
   };
 }
 

@@ -55,7 +55,6 @@ export async function getStaticProps({ params }: any) {
 
 export default function Brand({ images }: { images: ImageProps[] }) {
   const router = useRouter();
-
   const brand = getBrandNameBySlug(images, router.query.slug as string);
 
   return (
