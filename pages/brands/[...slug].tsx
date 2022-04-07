@@ -27,7 +27,7 @@ export async function getStaticPaths() {
         slug: [brand.slug],
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 

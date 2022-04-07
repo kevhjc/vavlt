@@ -1,15 +1,15 @@
 import Head from 'next/head';
 
 import Container from 'components/Container';
-import Information from 'components/Information';
+import NotFound from 'components/NotFound';
 
-export default function Info() {
+export default function Custom404() {
   return (
     <Container>
       <Head>
-        <title>Info — Vault</title>
+        <title>404 — Vault</title>
       </Head>
-      <Information />
+      <NotFound />
     </Container>
   );
 }
