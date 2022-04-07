@@ -1,5 +1,5 @@
 import Head from 'next/head';
-
+import { useRouter } from 'next/router';
 import { createClient } from '@supabase/supabase-js';
 
 import { ImageProps } from 'lib/interfaces';
@@ -54,13 +54,29 @@ export async function getStaticProps({ params }: any) {
 }
 
 export default function Brand({ images }: { images: ImageProps[] }) {
+  const router = useRouter();
+
+  const brand = getBrandNameBySlug(images, router.query.slug as string);
+
   return (
     <Container>
       <Head>
-        <title>Brand — Vault</title>
+        <title>{brand} — Vault</title>
       </Head>
       {images ? (
-        <PostGrid images={images} />
+        <div className="max-w-7xl">
+          <div className="px-6 -mb-6">
+            <div className="py-8 mx-auto gap-y-8">
+              <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
+                All posts including{' '}
+                <span className="text-neutral-800 dark:text-neutral-100">
+                  {brand}
+                </span>
+              </h2>
+            </div>
+          </div>
+          <PostGrid images={images} />
+        </div>
       ) : (
         <div className="px-6 max-w-7xl">
           <div className="py-8 mx-auto gap-y-8">
