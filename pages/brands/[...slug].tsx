@@ -68,7 +68,7 @@ export default function Brand({ images }: { images: ImageProps[] }) {
           <div className="px-6 pt-8 mx-auto">
             <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
               Posts featuring{' '}
-              <span className="text-neutral-800 dark:text-neutral-100">
+              <span className="font-black text-neutral-800 dark:text-neutral-100">
                 {brand}
               </span>
             </h2>

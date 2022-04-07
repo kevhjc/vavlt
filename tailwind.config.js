@@ -16,9 +16,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['Newsreader', 'serif'],
-      mono: ['IBM Plex Mono', 'monospace'],
+      sans: ['Satoshi', 'sans-serif'],
     },
   },
   plugins: [],
