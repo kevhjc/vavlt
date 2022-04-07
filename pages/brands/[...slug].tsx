@@ -9,8 +9,24 @@ import Container from 'components/Container';
 import PostGrid from 'components/PostGrid';
 
 export async function getStaticPaths() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  );
+
+  const { data } = await supabase
+    .from('images')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  const slugs = getAllBrandsWithSlugs(data!);
+
   return {
-    paths: ['/brands/[...slug]'],
+    paths: slugs?.map((brand) => ({
+      params: {
+        slug: [brand.slug],
+      },
+    })),
     fallback: true,
   };
 }
