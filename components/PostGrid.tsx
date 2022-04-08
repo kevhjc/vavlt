@@ -35,7 +35,7 @@ function Post({ image }: { image: ImageProps }) {
   return (
     <>
       <div className="group">
-        <div className="relative m-2 overflow-hidden scale-105 bg-white rounded-lg">
+        <div className="relative overflow-hidden scale-100 bg-white rounded-lg">
           <Image
             alt=""
             src={image.href}
