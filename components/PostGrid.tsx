@@ -44,7 +44,7 @@ function Post({ image }: { image: ImageProps }) {
             height={500}
             objectFit="cover"
             className={cn(
-              'cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:scale-100',
+              'cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:scale-[0.97]',
               isLoading ? 'scale-110 blur-2xl' : 'scale-95 blur-0'
             )}
             onLoadingComplete={() => setLoading(false)}
