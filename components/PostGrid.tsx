@@ -107,7 +107,7 @@ function Post({ image }: { image: ImageProps }) {
             >
               <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle transition-all transform shadow-xl rounded-xl bg-neutral-100 md:max-w-2xl dark:bg-neutral-800">
                 <button
-                  className="absolute top-0 right-0 bottom-auto left-auto p-3 transition-all duration-200 translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-sm stroke-1 stroke-neutral-800 hover:bg-neutral-100 dark:bg-neutral-700 dark:stroke-white dark:hover:bg-neutral-600"
+                  className="absolute top-0 right-0 bottom-auto left-auto p-3 transition-all duration-200 translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-sm stroke-1 stroke-neutral-800 hover:bg-neutral-100 dark:bg-neutral-500 dark:stroke-white dark:hover:bg-neutral-600"
                   onClick={closeModal}
                 >
                   <svg
