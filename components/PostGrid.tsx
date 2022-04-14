@@ -105,7 +105,7 @@ function Post({ image }: { image: ImageProps }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle transition-all transform shadow-xl rounded-xl bg-neutral-100 md:max-w-2xl dark:bg-neutral-800">
+              <div className="inline-block w-full max-w-md p-6 my-8 text-left align-middle transition-all transform shadow-xl rounded-xl bg-neutral-100 md:max-w-2xl dark:bg-neutral-800">
                 <button
                   className="absolute top-0 right-0 bottom-auto left-auto p-3 transition-all duration-200 translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-sm stroke-1 stroke-neutral-800 hover:bg-neutral-100 dark:bg-neutral-500 dark:stroke-white dark:hover:bg-neutral-600"
                   onClick={closeModal}
@@ -139,16 +139,43 @@ function Post({ image }: { image: ImageProps }) {
                     {format(new Date(image.created_at), 'MMMM d, yyyy')}
                   </p>
                 </Dialog.Title>
-                <div className="flex flex-wrap gap-2 mt-4 text-xs font-medium md:text-md text-neutral-600 dark:text-neutral-100">
-                  {image.brands.map((brand) => (
-                    <a
-                      key={brand}
-                      href={`/brands/${slugify(brand)}`}
-                      className="p-2 rounded bg-neutral-200/70 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600"
-                    >
-                      {brand}
-                    </a>
-                  ))}
+                <div className="grid grid-flow-col gap-2 auto-cols-max md:gap-4">
+                  <div className="mt-4 text-sm md:text-md text-neutral-500 dark:text-neutral-400/80">
+                    {image.categories.slice(0, 2).map((category) => (
+                      <ul key={category} className="">
+                        {category}
+                      </ul>
+                    ))}
+                  </div>
+                  <div className="flex flex-col mt-4 text-sm md:text-md text-neutral-600 dark:text-neutral-100">
+                    {image.brands.slice(0, 2).map((brand) => (
+                      <a
+                        key={brand}
+                        href={`/brands/${slugify(brand)}`}
+                        className="w-fit text-neutral-800 hover:underline dark:text-neutral-100"
+                      >
+                        {brand}
+                      </a>
+                    ))}
+                  </div>
+                  <div className="mt-4 ml-4 text-sm md:text-md text-neutral-500 md:ml-12 dark:text-neutral-400/80">
+                    {image.categories.slice(2, 4).map((category) => (
+                      <ul key={category} className="">
+                        {category}
+                      </ul>
+                    ))}
+                  </div>
+                  <div className="flex flex-col mt-4 text-sm md:text-md text-neutral-600 dark:text-neutral-100">
+                    {image.brands.slice(2, 4).map((brand) => (
+                      <a
+                        key={brand}
+                        href={`/brands/${slugify(brand)}`}
+                        className="w-fit text-neutral-800 hover:underline dark:text-neutral-100"
+                      >
+                        {brand}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Transition.Child>

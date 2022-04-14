@@ -12,5 +12,6 @@ export interface ImageProps {
   id: number;
   created_at: string;
   brands: string[];
+  categories: string[];
   href: string;
 }
