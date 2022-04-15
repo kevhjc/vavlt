@@ -59,11 +59,11 @@ function Post({ image }: { image: ImageProps }) {
             <div key={brand}>
               <a
                 href={`/brands/${slugify(brand)}`}
-                className="text-neutral-600/80 hover:underline dark:text-neutral-400/80"
+                className="text-neutral-500/80 hover:underline dark:text-neutral-300/80"
               >
                 {brand}
               </a>
-              <span className="mr-1 text-neutral-500 dark:text-neutral-400">
+              <span className="mr-1 text-neutral-400 dark:text-neutral-500">
                 {index < image.brands.length - 1 ? ',' : ''}
               </span>
             </div>
@@ -73,7 +73,7 @@ function Post({ image }: { image: ImageProps }) {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 px-4 overflow-y-auto min-w-fit"
+          className="fixed inset-0 z-10 px-4 overflow-auto min-w-auto"
           initialFocus={closeButtonRef}
           onClose={closeModal}
         >
@@ -139,34 +139,16 @@ function Post({ image }: { image: ImageProps }) {
                     {format(new Date(image.created_at), 'MMMM d, yyyy')}
                   </p>
                 </Dialog.Title>
-                <div className="grid grid-flow-col gap-2 auto-cols-max md:gap-4">
-                  <div className="mt-4 text-sm md:text-md text-neutral-500 dark:text-neutral-400/80">
-                    {image.categories.slice(0, 2).map((category) => (
+                <div className="grid grid-flow-col gap-8 mt-4 text-sm md:text-md auto-cols-max md:gap-12">
+                  <div className="flex flex-col text-neutral-500 dark:text-neutral-400/80">
+                    {image.categories.map((category) => (
                       <ul key={category} className="">
                         {category}
                       </ul>
                     ))}
                   </div>
-                  <div className="flex flex-col mt-4 text-sm md:text-md text-neutral-600 dark:text-neutral-100">
-                    {image.brands.slice(0, 2).map((brand) => (
-                      <a
-                        key={brand}
-                        href={`/brands/${slugify(brand)}`}
-                        className="w-fit text-neutral-800 hover:underline dark:text-neutral-100"
-                      >
-                        {brand}
-                      </a>
-                    ))}
-                  </div>
-                  <div className="mt-4 ml-4 text-sm md:text-md text-neutral-500 md:ml-12 dark:text-neutral-400/80">
-                    {image.categories.slice(2, 4).map((category) => (
-                      <ul key={category} className="">
-                        {category}
-                      </ul>
-                    ))}
-                  </div>
-                  <div className="flex flex-col mt-4 text-sm md:text-md text-neutral-600 dark:text-neutral-100">
-                    {image.brands.slice(2, 4).map((brand) => (
+                  <div className="flex flex-col text-neutral-600 dark:text-neutral-100">
+                    {image.brands.map((brand) => (
                       <a
                         key={brand}
                         href={`/brands/${slugify(brand)}`}
