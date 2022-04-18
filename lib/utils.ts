@@ -30,8 +30,8 @@ export function slugify(str: string) {
   str = str.replace(/^\s+|\s+$/g, '');
   str = str.toLowerCase();
 
-  let from = 'ãàáäâáº½èéëêìíïîõòóöôùúüûñç·/_,:;';
-  let to = 'aaaaaeeeeeiiiiooooouuuunc------';
+  let from = 'ãàáäâáèéëêìíïîõòóöôùúüûñç·/_,:;';
+  let to = 'aaaaaaeeeeiiiiooooouuuunc------';
   for (let i = 0, l = from.length; i < l; i++) {
     str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
