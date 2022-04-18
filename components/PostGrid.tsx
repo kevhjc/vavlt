@@ -8,13 +8,29 @@ import { ImageProps } from '../lib/interfaces';
 import { slugify } from '../lib/utils';
 
 export default function PostGrid({ images }: { images: ImageProps[] }) {
+  const [postNum, setPostNum] = useState<number>(10);
+
+  const handleLoadMorePosts = () => {
+    setPostNum((previousPostNum) => previousPostNum + 10);
+  };
+
   return (
     <div className="px-6 py-8 mx-auto">
       <div className="grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 2xl:grid-cols-5">
-        {images.map((image: ImageProps) => (
+        {images.slice(0, postNum).map((image: ImageProps) => (
           <Post key={image.id} image={image} />
         ))}
       </div>
+      {postNum < images.length && (
+        <div className="flex justify-center">
+          <button
+            className="p-2 px-6 mt-12 text-sm font-medium transition-all rounded cursor-pointer bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+            onClick={handleLoadMorePosts}
+          >
+            More posts &darr;
+          </button>
+        </div>
+      )}
     </div>
   );
 }
