@@ -8,9 +8,9 @@ export default function BrandsList({ images }: { images: ImageProps[] }) {
   const sections = getSections(brands);
 
   return (
-    <div className="max-w-6xl">
+    <div className="lg:max-w-7xl">
       <div className="px-6">
-        <div className="grid py-8 mx-auto gap-y-8 lg:grid-flow-col lg:grid-rows-5">
+        <div className="grid py-8 mx-auto gap-y-8 lg:grid-flow-col lg:grid-rows-4">
           {Object.values(sections).map((section, index) => (
             <div key={index} className="group">
               <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
