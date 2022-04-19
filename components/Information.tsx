@@ -1,7 +1,7 @@
 export default function Information() {
   return (
     <div className="max-w-md">
-      <div className="px-6">
+      <div className="px-6 py-8">
         <div className="py-8 mx-auto gap-y-8">
           <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
             What's Vavlt?
@@ -19,7 +19,7 @@ export default function Information() {
             where I'd post one outfit per day, presented in a four item grid.
           </p>
         </div>
-        <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
+        <h2 className="pt-4 text-xl text-neutral-400 dark:text-neutral-500">
           Who made it?
         </h2>
         Built by{' '}
