@@ -103,7 +103,7 @@ function Post({ image }: { image: ImageProps }) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-cover bg-neutral-500 bg-opacity-20 backdrop-blur-md dark:bg-neutral-900/80" />
+              <Dialog.Overlay className="fixed inset-0 bg-cover bg-neutral-500 bg-opacity-20 backdrop-blur-md firefox:bg-opacity-80 dark:bg-neutral-900/80" />
             </Transition.Child>
             <span
               className="inline-block h-screen align-middle"
