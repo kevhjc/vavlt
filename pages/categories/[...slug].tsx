@@ -63,10 +63,10 @@ export default function Category({ images }: { images: ImageProps[] }) {
   const router = useRouter();
   const category = getCategoryBySlug(images, router.query.slug as string);
 
-  const categoryPlural = pluralize(category as string);
   pluralize.addUncountableRule('Denim');
   pluralize.addUncountableRule('Footwear');
   pluralize.addUncountableRule('Outerwear');
+  const categoryPlural = pluralize(category as string);
 
   return (
     <Container>

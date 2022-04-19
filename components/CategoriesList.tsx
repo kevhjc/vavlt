@@ -5,10 +5,10 @@ import { ImageProps } from 'lib/interfaces';
 import { slugify, getCategories } from 'lib/utils';
 
 export default function BrandsList({ images }: { images: ImageProps[] }) {
-  const categories = getCategories(images);
   pluralize.addUncountableRule('Denim');
   pluralize.addUncountableRule('Footwear');
   pluralize.addUncountableRule('Outerwear');
+  const categories = getCategories(images);
 
   return (
     <div className="max-w-6xl">
