@@ -6,7 +6,6 @@ import { slugify, getCategories } from 'lib/utils';
 
 export default function BrandsList({ images }: { images: ImageProps[] }) {
   pluralize.addUncountableRule('Denim');
-  pluralize.addUncountableRule('Footwear');
   pluralize.addUncountableRule('Outerwear');
   const categories = getCategories(images);
 
