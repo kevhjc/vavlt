@@ -14,7 +14,7 @@ export default function BrandsList({ images }: { images: ImageProps[] }) {
       <div className="px-6">
         <div className="grid py-8 lg:grid-flow-row">
           {categories.map((category, index) => (
-            <ul key={index} className="w-fit hover:underline">
+            <ul key={index} className="text-xl w-fit hover:underline">
               <Link
                 href={{
                   pathname: '/categories/[slug]',

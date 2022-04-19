@@ -10,7 +10,7 @@ export default function BrandsList({ images }: { images: ImageProps[] }) {
   return (
     <div className="max-w-6xl">
       <div className="px-6">
-        <div className="grid py-8 gap-y-8 lg:grid-flow-col lg:grid-rows-5">
+        <div className="grid py-8 gap-y-6 lg:grid-flow-col lg:grid-rows-5">
           {Object.values(sections).map((section, index) => (
             <div key={index} className="group">
               <h2 className="text-xl text-neutral-400 dark:text-neutral-500">
