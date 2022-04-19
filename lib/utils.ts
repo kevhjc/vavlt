@@ -1,5 +1,27 @@
 import { ImageProps } from './interfaces';
 
+export function capitalize(str: string) {
+  return str.toString().charAt(0).toUpperCase() + str.toString().slice(1);
+}
+
+export function slugify(str: string) {
+  str = str.replace(/^\s+|\s+$/g, '');
+  str = str.toLowerCase();
+
+  let from = 'ãàáäâáèéëêìíïîõòóöôùúüûñç·/_,:;';
+  let to = 'aaaaaaeeeeiiiiooooouuuunc------';
+  for (let i = 0, l = from.length; i < l; i++) {
+    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  }
+
+  str = str
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+
+  return str;
+}
+
 export function getUniqueBrands(images: ImageProps[]) {
   const allBrands = Object.values(images).reduce(
     (acc, image) => acc.concat(image.brands),
@@ -26,24 +48,6 @@ export function getSections(brands: string[]) {
   );
 }
 
-export function slugify(str: string) {
-  str = str.replace(/^\s+|\s+$/g, '');
-  str = str.toLowerCase();
-
-  let from = 'ãàáäâáèéëêìíïîõòóöôùúüûñç·/_,:;';
-  let to = 'aaaaaaeeeeiiiiooooouuuunc------';
-  for (let i = 0, l = from.length; i < l; i++) {
-    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-  }
-
-  str = str
-    .replace(/[^a-z0-9 -]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-
-  return str;
-}
-
 export function getAllBrandsWithSlugs(images: ImageProps[]) {
   if (images !== undefined) {
     const brands = getUniqueBrands(images);
@@ -63,5 +67,22 @@ export function getBrandNameBySlug(images: ImageProps[], slug: string) {
     return getAllBrandsWithSlugs(images!)?.filter(
       (brand) => brand.slug === slug.toString()
     )[0]?.brand as string;
+  }
+}
+
+export function getCategories(images: ImageProps[]) {
+  const allCategories = Object.values(images).reduce(
+    (acc, image) => acc.concat(image.categories),
+    [] as string[]
+  );
+  const categoriesSet = new Set([...allCategories.sort()]);
+  return Array.from(categoriesSet);
+}
+
+export function getCategoryBySlug(images: ImageProps[], slug: string) {
+  if (images !== undefined && slug !== undefined) {
+    return getCategories(images).filter(
+      (category) => capitalize(slug.toString()) === category
+    )[0] as string;
   }
 }

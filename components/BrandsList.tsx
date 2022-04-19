@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { ImageProps } from 'lib/interfaces';
-import { getUniqueBrands, getSections, slugify } from 'lib/utils';
+import { slugify, getUniqueBrands, getSections } from 'lib/utils';
 
 export default function BrandsList({ images }: { images: ImageProps[] }) {
   const brands = getUniqueBrands(images);
