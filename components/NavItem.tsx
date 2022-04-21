@@ -10,16 +10,28 @@ export default function NavItem({ href, text }: NavProps) {
 
   return (
     <NextLink href={href}>
-      <a
-        className={cn(
-          isActive
-            ? 'text-neutral-800 underline hover:no-underline dark:text-neutral-100'
-            : 'text-neutral-500 dark:text-neutral-400',
-          'w-fit hover:underline'
-        )}
-      >
-        <span>{text}</span>
-      </a>
+      {href === '/' ? (
+        <a
+          className={cn(
+            isActive
+              ? 'w-fit text-neutral-800 underline hover:no-underline dark:text-neutral-100'
+              : 'w-fit text-neutral-500 hover:underline dark:text-neutral-400'
+          )}
+        >
+          <span>{text}</span>
+        </a>
+      ) : (
+        <a
+          className={cn(
+            isActive
+              ? 'text-neutral-800 underline hover:no-underline dark:text-neutral-100'
+              : 'text-neutral-500 dark:text-neutral-400',
+            'w-fit hover:underline'
+          )}
+        >
+          <span>{text}</span>
+        </a>
+      )}
     </NextLink>
   );
 }
