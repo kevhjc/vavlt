@@ -89,7 +89,7 @@ function Post({ image }: { image: ImageProps }) {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 px-4 overflow-auto min-w-auto"
+          className="fixed inset-0 z-10 px-4 overflow-auto min-w-fit"
           initialFocus={closeButtonRef}
           onClose={closeModal}
         >
