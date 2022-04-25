@@ -22,7 +22,7 @@ export default function PostGrid({ images }: { images: ImageProps[] }) {
         ))}
       </div>
       {postNum < images.length && (
-        <div className="flex justify-start">
+        <div className="flex justify-center lg:justify-start">
           <button
             className="p-2 px-4 mt-12 text-sm font-medium transition-all rounded cursor-pointer bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
             onClick={handleLoadMorePosts}
